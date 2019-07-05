@@ -1,0 +1,38 @@
+<div class=' panel panel-primary container'>
+  <div class='panel-heading'>
+    {{title}}
+  </div>
+  <div class="panel-body">
+    <table *ngIf="products && products.length" class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>
+            <button class="btn btn-primary" (click)="hidebtn()">{{button ? 'Hide':'Show'}}</button>
+          </th>
+          <th scope="col">productId</th>
+          <th scope="col">productName</th>
+          <th scope="col">productCode</th>
+          <th scope="col">price</th>
+          <th scope="col" (click)="star()"><button class="btn btn-success">Star Rating </button></th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let product of products">
+        <tr>
+          <td><img *ngIf="button" [src]="product.imageUrl" width='50px'></td>
+          <td> {{product.productId}} </td>
+
+          <td> <a [routerLink]="['/products', product.productCode]">{{product.productName}}</a></td>
+
+          <td>{{product.productCode}}</td>
+          <td>{{product.price}}</td>
+          <td>
+            <app-rating *ngIf="rateno" [rating]="product.starRating" (ratingtoparent)='parentfn($event)'></app-rating>
+            <span *ngIf="starrate">{{product.starRating}}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+

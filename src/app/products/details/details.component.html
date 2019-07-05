@@ -1,0 +1,31 @@
+<div class="panel panel-body">
+
+  <table class="table table-bordered">
+    <tr>
+
+      <th scope="col">Image</th>
+      <th scope="col">productId</th>
+      <th scope="col">productName</th>
+      <th scope="col">productCode</th>
+      <th scope="col">price</th>
+      <th scope="col">star Rating</th>
+    </tr>
+    <tr *ngFor="let item of proc">
+      <td><img [src]="item.imageUrl" width='50px'></td>
+      <td>{{item.productId}} </td>
+      <td>{{item.productName}}</td>
+      <td>{{item.productCode}}</td>
+      <td>{{item.price}}</td>
+      <td>
+        <div class="glyphicon glyphicon-heart" [class.highlighted]="active" (click)="star()"></div>
+        <span>{{count}}</span>
+      </td>
+    </tr>
+  </table>
+
+</div>
+<div class="panel panel-body">
+  <button style="margin-left:40%" class="btn btn-primary" (click)="back()">Go Back </button>
+</div>
+
+ 
